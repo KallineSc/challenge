@@ -13,11 +13,12 @@
 
   <style scoped>
   .button-submit {
+    color: #313131;
+    font-weight: bolder;
     border-style: solid;
     width: 180px;
     height: 35px;
-    color: black;
-    border-color: #79919b;
+    border-color: #93b6c5;
     border-radius: 0.3rem;
     background-color: #93b6c5;
   }
