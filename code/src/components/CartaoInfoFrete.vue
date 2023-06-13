@@ -1,6 +1,10 @@
 <template>
   <div class="div-externa d-flex">
-    <div class="div-imagem" :style="{ backgroundColor: corDivImagem }"><img :src="require('@/assets/' + imagem + '')" alt=""></div>
+
+    <div class="div-imagem" :style="{ backgroundColor: corDivImagem }">
+      <img :src="require('@/assets/' + imagem + '')" alt="">
+    </div>
+
     <div class="div-texto" :style="{ backgroundColor: corDivTexto }">
       <h6>{{ titulo }}</h6>
       <p>Transportadora: {{ transportadora }}</p>
@@ -54,9 +58,7 @@
 
   <style scoped>
   .div-externa {
-    margin-left: 0rem;
     height: 6rem;
-    border-radius: 0.5rem;
   }
   .div-imagem {
     width: 5rem;

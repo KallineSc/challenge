@@ -1,7 +1,6 @@
 <template>
-
+  
     <div class="div-externa">
-      <b-form ref="formulario" @submit.prevent="onSubmit" @reset="onReset" v-if="show">
         <div class="d-flex">
           <img class="img" src="../assets/img-frete3.jpg" alt="Responsive image">
           <h4 class="my-0 mt-2">Insira o destino e o peso</h4>
@@ -22,22 +21,19 @@
           <b-form-input  class="mt-2"
             id="input-2"
             v-model="form.peso"
+            type="number"
             placeholder="Peso da carga em kg"
           ></b-form-input>
         </b-form-group>
 
         <div class="d-flex justify-content-center">
           <BotaoGenerico titulo="Analisar" type="submit"/>
-          <BotaoGenerico titulo="Limpar" type="reset"/>
         </div>
-
-      </b-form>
     </div>
   </template>
   <script>
   import axios from 'axios';
   import BotaoGenerico from './BotaoGenerico.vue';
-  import Swal from 'sweetalert2';
 
     export default {
       components: {
@@ -57,42 +53,11 @@
         this.getTransports();
       },
       methods: {
-        onSubmit() {
-          if (this.form.peso && this.form.destino != null) {
-            this.$nextTick(() => {
-
-            });
-          } else {
-            this.$nextTick(() => {
-              Swal.fire({
-                text: 'Insira os valores para realizar a análise.',
-                icon: 'warning',
-                iconColor: '#34626a',
-                showCloseButton: false,
-                showCancelButton: false,
-                showConfirmButton: true,
-                confirmButtonText: 'Fechar',
-                confirmButtonColor: '#93b6c5',
-                color: '#313131',
-              });
-            });
-          }
-        },
-        onReset(event) {
-          event.preventDefault()
-          this.form.peso = ''
-          this.form.destino = null
-          this.show = false
-          this.$nextTick(() => {
-            this.show = true
-          })
-        },
         getTransports(){
           axios
             .get("http://localhost:3000/transport")
             .then((res) => {
               this.options = res.data;
-              console.log(res.data)
             })
             .catch((error) => {
               console.log(error);
