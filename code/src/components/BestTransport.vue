@@ -43,7 +43,9 @@ export default {
 
 <style scoped>
 .title .navbar {
-  background-color: #00aca6 !important;
+  background-color: #95b6c7 !important;
+  color: #313131;
+  font-weight: bolder;
 }
 
 .title .navbar-brand {

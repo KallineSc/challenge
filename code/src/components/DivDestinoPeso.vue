@@ -1,9 +1,9 @@
 <template>
 
     <div class="div-externa">
-      <b-form @submit.prevent="onSubmit">
+      <b-form ref="formulario" @submit.prevent="onSubmit" @reset="onReset" v-if="show">
         <div class="d-flex">
-          <img class="img" src="../assets/logo.png" alt="Responsive image">
+          <img class="img" src="../assets/img-frete3.jpg" alt="Responsive image">
           <h4 class="my-0 mt-2">Insira o destino e o peso</h4>
         </div>
   
@@ -28,6 +28,7 @@
 
         <div class="d-flex justify-content-center">
           <BotaoGenerico titulo="Analisar" type="submit"/>
+          <BotaoGenerico titulo="Limpar" type="reset"/>
         </div>
 
       </b-form>
@@ -79,10 +80,8 @@
         },
         onReset(event) {
           event.preventDefault()
-          // Reset our form values
           this.form.peso = ''
           this.form.destino = null
-          // Trick to reset/clear native browser form validation state
           this.show = false
           this.$nextTick(() => {
             this.show = true
