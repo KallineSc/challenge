@@ -57,6 +57,12 @@
           axios
             .get("http://localhost:3000/transport")
             .then((res) => {
+              const response = res.data;
+              response.forEach((novoOption) => {
+                if (!this.options.some((option) => option.value === novoOption.value)) {
+                  this.options.push(novoOption);
+                }
+              });
               this.options = res.data;
             })
             .catch((error) => {

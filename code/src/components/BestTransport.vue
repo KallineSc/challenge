@@ -2,13 +2,14 @@
   <div>
     <div class="title">
       <b-navbar toggleable="lg" type="dark" variant="info">
+        <img class="img" src="../assets/logo.png" alt="Responsive image">
         <b-navbar-brand class="ml-2">
           <b>{{ appName }}</b>
         </b-navbar-brand>
       </b-navbar>
     </div>
     <b-form ref="formulario" @submit.prevent="onSubmit" @reset="onReset" v-if="show">
-      <div class="d-flex m container">
+      <div class="d-flex m container mt-3">
         <DivDestinoPeso ref="divDestinoPeso"/>
 
         <div class="m-auto" v-if="exibirComponente">
@@ -228,7 +229,11 @@ export default {
   background-color: #95b6c7 !important;
   color: #313131;
 }
-
+.img{
+  width: 3rem;
+  height: 3rem;
+  margin-left: 2rem;
+}
 .title .navbar-brand {
 
   color: #313131;
